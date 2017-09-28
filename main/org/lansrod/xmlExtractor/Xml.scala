@@ -19,9 +19,7 @@ object Xml {
     var count = 1
     var size = list.size - 1
     var listBuffer = new ListBuffer[Couple]
-    listBuffer += Couple(list(0).str, 0)
     for (cp1 <- 0 to size) {
-
       if (!exist(list(cp1).str, listBuffer)) {
         for (cp2 <- 1 to size) {
           if (list(cp1).str == list(cp2).str) {
@@ -34,7 +32,7 @@ object Xml {
     listBuffer.toList
   }
   /**
-   * Function for existence used By reduceByKey
+   * Function for existence used By $reduceByKey
    * @param str
    * @param listBuffer
    */
@@ -146,7 +144,7 @@ object Xml {
       Couple("States,", 1),
       Couple("and", 1),
       Couple("Hostess", 1))
-    println(reduceByKey(list))
+    println(reduceByKey(coupleObject))
 
   }
 }
