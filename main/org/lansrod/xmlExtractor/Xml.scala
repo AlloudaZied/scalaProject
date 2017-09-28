@@ -1,47 +1,53 @@
 package org.lansrod.xmlExtractor
 
 import scala.collection.mutable.ListBuffer
+import scala.tools.ant.sabbus.Break
 
 /**
  * Problem: In a SCALA application, you want to extract information from XML you receive,
  * so you can use the data in your application
+ * @author Zied
  */
 object Xml {
   case class Couple(str: String, number: Int)
   /**
-   * Reducing value 3 Key
+   * Function that reduce a  List of Couple object
+   * @param list : List of Couple
+   * @return List of Couple
    */
-  def concat(list: List[Couple]): List[Couple] = {
-    var buffer = " "
+  def reduceByKey(list: List[Couple]): List[Couple] = {
     var count = 1
     var size = list.size - 1
     var listBuffer = new ListBuffer[Couple]
-    listBuffer += Couple(list(0).str,0)
+    listBuffer += Couple(list(0).str, 0)
     for (cp1 <- 0 to size) {
-      
-      if (!exist(buffer, listBuffer)) {
-        buffer = list(cp1).str
+
+      if (!exist(list(cp1).str, listBuffer)) {
         for (cp2 <- 1 to size) {
-          if (buffer == list(cp2).str) {
+          if (list(cp1).str == list(cp2).str) {
             count += 1
           }
         }
-        listBuffer += Couple(buffer, count)
+        listBuffer += Couple(list(cp1).str, count)
       }
     }
-  
-    
     listBuffer.toList
   }
+  /**
+   * Function for existence used By reduceByKey
+   * @param str
+   * @param listBuffer
+   */
   def exist(str: String, listBuffer: ListBuffer[Couple]): Boolean = {
     var bool = false
-    var cp = 1
-    var size = listBuffer.size 
-    do {
-      if (str == listBuffer(cp).str) {
+    var cp = 0
+    var size = listBuffer.size
+    while ((bool == false) && (cp < size)) {
+      if ((str == listBuffer(cp).str) && (cp != 0)) {
         bool = true
-      } else bool = false
-    } while ((bool == true) || (cp > size))
+        cp = size
+      } else cp += 1
+    }
     bool
   }
   def main(args: Array[String]): Unit = {
@@ -52,12 +58,12 @@ object Xml {
       case "music" => "file existe with Label : " + fileLabel
       case _ => "file is not Loaded"
     }
-    var seqNode = musicfile \\ "description"
-    var description = seqNode.map(x => x.text)
-    var words = description.flatMap(x => x.split(" ").map(x => (x, 1)))
-    var lisWord = words.toList
-    var coupleObject = lisWord.map(x => new Couple(x._1, x._2))
-    var list = List(Couple("zied", 1),
+    val seqNode = musicfile \\ "description"
+    val description = seqNode.map(x => x.text)
+    val words = description.flatMap(x => x.split(" ").map(x => (x, 1)))
+    val lisWord = words.toList
+    val coupleObject = lisWord.map(x => new Couple(x._1, x._2))
+    val list = List(Couple("zied", 1),
       Couple("The", 1),
       Couple("King", 1),
       Couple("of", 1),
@@ -140,7 +146,7 @@ object Xml {
       Couple("States,", 1),
       Couple("and", 1),
       Couple("Hostess", 1))
-      println(concat(list))
-      
+    println(reduceByKey(list))
+
   }
 }
