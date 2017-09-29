@@ -1,4 +1,4 @@
-package org.scala.OptionScala
+package org.lansrod.OptionScala
 /**
  * Type MONADIQUE 
  */
