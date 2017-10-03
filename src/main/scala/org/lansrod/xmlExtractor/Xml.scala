@@ -49,7 +49,7 @@ object Xml {
     bool
   }
   def main(args: Array[String]): Unit = {
-    val musicfile = scala.xml.XML.loadFile("ressources/tmp/music.xml")
+    val musicfile = scala.xml.XML.loadFile(getClass.getResource("/music.xml").getFile)
     println(musicfile.child.head)
     val fileLabel = musicfile.label
     fileLabel match {
