@@ -1,4 +1,4 @@
-package org.lansrod.test;
+package xmlExtractor;
 
 import org.scalatest.FlatSpec
 import org.scalatest.Inside

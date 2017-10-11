@@ -1,4 +1,4 @@
-package org.lansrod.xmlExtractor
+package xmlExtractor
 
 import scala.collection.mutable.ListBuffer
 import scala.tools.ant.sabbus.Break

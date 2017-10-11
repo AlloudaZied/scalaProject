@@ -1,4 +1,4 @@
-package org.lansrod.xmlExtractor
+package xmlExtractor
 import org.scalatest.FlatSpec
 class XmlTest  extends FlatSpec {
   
