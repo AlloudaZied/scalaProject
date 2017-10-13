@@ -13,6 +13,15 @@ object MainObject {
 //    val list = List(Couple("zied", 1)
 //    println(reduceByKey(coupleObject))
 //  }
+    val musicfile = scala.xml.XML.loadFile(getClass.getResource("/music.xml").getFile)
+    println(musicfile.child.head)
+    val fileLabel = musicfile.label
+    fileLabel match {
+      case "music" => "file existe with Label : " + fileLabel
+      case _ => "file is not Loaded"
+    }
+    val att = new AttributeTraitImpl()
+    att.getArtist(musicfile)
   }
   
 }

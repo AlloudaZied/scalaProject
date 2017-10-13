@@ -6,7 +6,7 @@ import scala.tools.ant.sabbus.Break
 /**
  * Problem: In a SCALA application, you want to extract information from XML you receive,
  * so you can use the data in your application
- * @author Zied
+ * @author ZIED
  */
 class Xml {
   case class Couple(str: String, number: Int)
