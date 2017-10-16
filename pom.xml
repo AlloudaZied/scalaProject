@@ -37,7 +37,8 @@
 	</dependencies>
 	<build>
 	<defaultGoal>install</defaultGoal>
-		<sourceDirectory>src</sourceDirectory>
+		<sourceDirectory>main</sourceDirectory>
+		<testSourceDirectory>test</testSourceDirectory>
 		<plugins>
 			<plugin>
 				<artifactId>maven-compiler-plugin</artifactId>
