@@ -7,7 +7,9 @@ object MainObject {
     val node = new Xml()
     val seqNode = node.getNode("/music.xml")
     val att = new AttributeTraitImpl()
-    println(att.getAlbum(att.getArtist(seqNode)(1))(1))
+    val  result = att.getSongs(att.getAlbum(att.getArtist(seqNode)(1))(1))(1)
+    val rs =result.attribute("title")
+    println(rs)
   }
   
 }

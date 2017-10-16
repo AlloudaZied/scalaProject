@@ -11,4 +11,5 @@ trait AttributeTrait[NodSeq] {
   def getArtist(element :Elem) :Seq[Node]
   def getAlbum(node :Node):Seq[Node]
   def getSongs(node:Node) :Seq[Node]
+  def getAttribute(node:Node):Node
 }
