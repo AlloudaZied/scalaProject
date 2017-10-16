@@ -32,9 +32,9 @@ class AttributeTraitImpl extends AttributeTrait[NodeSeq] {
      val nodeseq = node.child
        nodeseq   
   }  
-  override   def getAttribute(node:Node , attribute :String):Node = {
+  override def getAttribute(node:Node , attribute :String):Option[Seq[Node]] = {
     val result = node.attribute(attribute)
-     result.get(1)
+     result
   }
 
 }
