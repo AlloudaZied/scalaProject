@@ -19,19 +19,24 @@ class AttributeTraitImpl extends AttributeTrait[NodeSeq] {
     println(returnedList)
     returnedList
     
+   
     
        
   }
   /**
    * Function That get The list of Album for a giving Artist
    */
-  override def getAlbum():List[String] {
+  override def getAlbum():List[String] = {
+    val returnedList = List("","")
+    returnedList
     
   }
   /**
    * Function That get The list of songs for a giving Album
    */
-  override def getSongs() :List[String]{
+  override def getSongs() :List[String] ={
+     val returnedList = List("","")
+    returnedList
     
   }
 

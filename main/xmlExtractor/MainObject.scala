@@ -21,7 +21,7 @@ object MainObject {
       case _ => "file is not Loaded"
     }
     val att = new AttributeTraitImpl()
-    att.getArtist(musicfile)
+//    att.getArtist(musicfile)
   }
   
 }

@@ -1,7 +1,7 @@
 package xmlExtractor
 
 import scala.collection.mutable.ListBuffer
-import scala.tools.ant.sabbus.Break
+import scala.xml.NodeSeq
 
 /**
  * Problem: In a SCALA application, you want to extract information from XML you receive,
@@ -51,8 +51,8 @@ class Xml {
   /**
    * Function getting the name 
    */
-  def getNode(url :String):NodeSeq{
-    val musicfile = scala.xml.XML.loadFile(getClass.getResource(str).getFile)
+  def getNode(url :String):NodeSeq ={
+    val musicfile = scala.xml.XML.loadFile(getClass.getResource(url).getFile)
     println(musicfile.child.head)
     val fileLabel = musicfile.label
     fileLabel match {

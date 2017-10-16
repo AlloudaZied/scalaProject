@@ -1,6 +1,7 @@
 package xmlExtractor
 
 import scala.xml.NodeSeq
+import scala.xml.Elem
 
 trait AttributeTrait[NodSeq] {
   
