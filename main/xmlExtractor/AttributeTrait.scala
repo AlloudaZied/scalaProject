@@ -2,10 +2,13 @@ package xmlExtractor
 
 import scala.xml.NodeSeq
 import scala.xml.Elem
-
+import scala.xml.Node
+/**
+ * Trait of parsing
+ */
 trait AttributeTrait[NodSeq] {
   
-  def getArtist(file :Elem) :List[String]
-  def getAlbum():List[String]
-  def getSongs() :List[String]
+  def getArtist(element :Elem) :Seq[Node]
+  def getAlbum(node :Node):Seq[Node]
+  def getSongs(node:Node) :Seq[Node]
 }
