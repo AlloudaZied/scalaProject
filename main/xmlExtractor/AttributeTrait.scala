@@ -6,7 +6,7 @@ import scala.xml.Node
 /**
  * Trait of parsing
  */
-trait AttributeTrait[NodSeq] {
+trait AttributeTrait {
   
   def getArtist(element :Elem) :Seq[Node]
   def getAlbum(node :Node):Seq[Node]
