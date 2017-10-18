@@ -44,9 +44,8 @@ class AttributeTraitImpl extends AttributeTrait {
     val file = new Xml()
     val element = file.getNode("/music.xml")
     val artistNode = getArtist(element)
-    val artistName = artistNode.map(x=>getAttribute(x, "name"))
-    artistName.toList
-     
+    var artistName = artistNode.map(x =>x.attributes.get("name"))
+      artistName.filter(x => x!=None).map(x => x.get.toString()).toList
     
   }
   /**
