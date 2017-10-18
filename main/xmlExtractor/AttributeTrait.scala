@@ -32,7 +32,7 @@ trait AttributeTrait {
   /**
    * Getting all album for every artist
    */
-  def getAlbumByArtist()
+  def getAlbumByArtist(node:Node):List[String]
   
   /**
    * Getting List of of songs for an album
