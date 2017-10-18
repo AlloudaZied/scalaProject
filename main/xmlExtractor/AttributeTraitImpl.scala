@@ -32,9 +32,47 @@ class AttributeTraitImpl extends AttributeTrait {
      val nodeseq = node.child
        nodeseq   
   }  
-  override def getAttribute(node:Node , attribute :String):Option[Seq[Node]] = {
-    val result = node.attribute(attribute)
-     result
+  override def getAttribute(node:Node , attribute :String):String = {
+    val result = node.child
+    val result1 = result(0)
+     result1.toString()
   }
+  /**
+   * Implement  @getListArtist()
+   */
+  override def getListArtist() : List[String]={
+    val file = new Xml()
+    val element = file.getNode("/music.xml")
+    val artistNode = getArtist(element)
+    val artistName = artistNode.map(x=>getAttribute(x, "name"))
+    artistName.toList
+     
+    
+  }
+  /**
+   * 
+   */
+  override   def getAlbumByArtist() = {
+    
+  }
+  /**
+   * 
+   */
+  override   def getSongsByAlbum () = {
+    
+  }
+  /**
+   * 
+   */
+  override   def SaveToPartionnedTableHive() = {
+    
+  }
+  /**
+   * 
+   */
+  override   def getLongSongByArtistAndAlbum() = {
+    
+  }
+
 
 }

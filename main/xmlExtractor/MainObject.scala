@@ -1,6 +1,5 @@
 package xmlExtractor
 
-import trasformXml.TransformTraitImpl
 
 object MainObject {
 
@@ -19,10 +18,9 @@ object MainObject {
 //    val attribute = "title"
 //    val rs = att.getAttribute(album, attribute).get
 //    println(rs)
-    val transformer = new TransformTraitImpl()
-    val listArtist =transformer.getListArtist()
-    val res = listArtist.map(x=>x(0))
-    println(res)
+    val context = new AttributeTraitImpl()
+    val listArtist = context.getListArtist()
+    println(listArtist)
     
   }
   
