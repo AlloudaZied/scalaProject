@@ -32,7 +32,7 @@ trait AttributeTrait {
   /**
    * Getting all album for every artist
    */
-  def getAlbumByArtist(node:Node):List[String]
+  def getAlbumByArtist():Seq[Option[Seq[Node]]]
   
   /**
    * Getting List of of songs for an album
@@ -43,7 +43,10 @@ trait AttributeTrait {
    * Save Data On Hive with static partition PARAM = Artist
    */
   def SaveToPartionnedTableHive()
-  
+  /**
+   * Join artist with his Album
+   */
+  def joinAlbumwithArtist()
   /**
    * Determinate the very long song for every artist on every album
    */

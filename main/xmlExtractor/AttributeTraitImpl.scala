@@ -48,12 +48,15 @@ class AttributeTraitImpl extends AttributeTrait {
       artistName.filter(x => x!="").toList  
   }
   /**
-   * Implement @getAlbumByArtist()
+   * Implement @getAlbumByArtist() 
    */
-  override def getAlbumByArtist(node :Node) :List[String] = {
-    val list = node.child
-    val resultList = list.map(x => x.attribute("title").toString())
+  override def getAlbumByArtist() :Seq[Option[Seq[Node]]] = {
+    val file = new Xml()
+    val element = file .getNode("/music.xml")
+    val album = element \\ "album"
+    val resultList = album.map(x => x.attribute("title"))
     resultList.toList
+    
     
     
   }
@@ -63,6 +66,13 @@ class AttributeTraitImpl extends AttributeTrait {
   override   def getSongsByAlbum () = {
      
   }
+  /**
+   * Implement @joinAlbumwithArtist()
+   */
+  override   def joinAlbumwithArtist(){
+    
+  }
+
   /**
    * Implement @SaveToPartionnedTableHive()
    */
